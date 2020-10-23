@@ -1,8 +1,12 @@
 <p align="center">
-  <a href="https://www.gatsbyjs.com" style="display:flex; align-items:center; justify-content:space-between;">
+  <a href="https://www.gatsbyjs.com" >
     <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-    <img alt="Snipcart" src="https://snipcart.com/media/204311/data-structure-logo.png" width="60"/> 
-    <img alt="Sanity" src="https://www.sanity.io/static/images/logo.png" width="120"/> 
+  </a>
+  <a href="https://www.snipcart.com">
+    <img alt="Snipcart" src="https://snipcart.com/media/204311/data-structure-logo.png" width="60" /> 
+  </a>
+  <a href="https://www.sanity.io">
+    <img alt="Sanity" src="https://www.sanity.io/static/images/logo.png" width="120" />
   </a>
 </p>
 <h1 align="center">
