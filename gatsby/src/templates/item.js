@@ -113,7 +113,7 @@ export default function SingleItem({ data: { item } }) {
               data-item-name={item.title}
               data-item-description={item.blurb.en}
               data-item-image={item.defaultProductVariant.images[0].asset.fluid.src}
-              data-item-url={"https://gatsbysnipcartsanity.netlify.app" + item.slug.current} //REPLACE WITH OWN URL
+              data-item-url={"https://gatsbysnipcartsanity.netlify.app/products/" + item.slug.current} //REPLACE WITH OWN URL
             >
               Add to basket
               </BuyButton>

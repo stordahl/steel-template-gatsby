@@ -26,7 +26,6 @@ export default function IndexPage({ data, pageContext }) {
         <SEO title="All items" />
         <ThumbnailsWrapper>
           {items.map(( item ) => {
-            console.log(item);
             const { 
               title, 
               id, 
