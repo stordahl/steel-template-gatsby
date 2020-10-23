@@ -3,7 +3,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import { theme } from '../styles/theme';
 import { GlobalStyle } from '../styles/globalStyle';
 
-import Header from './Header';
+import Header from './header';
 
 
 const PageWrapper = styled.div`
