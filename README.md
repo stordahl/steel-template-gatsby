@@ -1,16 +1,18 @@
-<p align="center" style="display:flex; align-items:center; justify-content:center;">
-  <a href="https://www.gatsbyjs.com" style="margin:1rem;">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" height="60"/>
-  </a>
-  <a href="https://www.snipcart.com" style="margin:1rem;">
-    <img alt="Snipcart" src="https://snipcart.com/media/204311/data-structure-logo.png" width="60" height="60"/> 
-  </a>
-  <a href="https://www.sanity.io" style="margin:1rem;">
-    <img alt="Sanity" src="https://www.sanity.io/static/images/logo.png" width="120" height="30"/>
-  </a>
-</p>
+<img src="https://ibb.co/8D58TYB" alt="Gatsby Snipcart Sanity Logos"/>
 <h1 align="center">
-  A Gatsby + Snipcart + Sanity E-commerce starter
+  A
+  <a href="https://www.gatsbyjs.com" style="margin:1rem;">
+    Gatsby
+  </a>
+  +
+  <a href="https://www.snipcart.com" style="margin:1rem;">
+    Snipcart
+  </a>
+  +
+  <a href="https://www.sanity.io" style="margin:1rem;">
+    Sanity
+  </a>
+  E-commerce starter
 </h1>
 
 ## 🚀 Quick start
