@@ -1,4 +1,4 @@
-<img src="https://ibb.co/8D58TYB" alt="Gatsby Snipcart Sanity Logos"/>
+<img src="https://i.ibb.co/KjqyRKG/gatsbysnipcartsanity.png" alt="Gatsby Snipcart Sanity Logos"/>
 <h1 align="center">
   A
   <a href="https://www.gatsbyjs.com" style="margin:1rem;">
