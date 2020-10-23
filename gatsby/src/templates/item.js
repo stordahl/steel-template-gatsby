@@ -50,32 +50,7 @@ const BuyButton = styled.button`
 `
 
 export default function SingleItem({ data: { item, site } }) {
-
-  // TODO: add OPTIONAL variable product functionality 
-  // This snippet is from Issy Dennis' Gatsby Snipcart Starter
-  // =========================================================
-  // state = {
-  //   selected: this.props.data.markdownRemark.frontmatter.customField.values[0].name
-  // }
-
-  // setSelected = (value) => {
-  //   this.setState({ selected: value })
-  // }
-
-  // // create the string required by snipcart to allow price changes based on option chosen
-  // createString = (values) => {
-  //   return values.map(option => {
-  //     const price = option.priceChange >= 0 ? `[+${option.priceChange}]` : `[${option.priceChange}]`
-  //     return `${option.name}${price}`
-  //   }).join('|')
-  // }
-
-  // // calculate price based on option selected for display on item page
-  // updatePrice = (basePrice, values) => {
-  //   const selectedOption = values.find(option => option.name === this.state.selected)
-  //   return (basePrice + selectedOption.priceChange).toFixed(2)
-  // }
-
+  
     const siteTitle = site.siteMetadata.title
 
     return (
