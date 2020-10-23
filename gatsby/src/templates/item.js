@@ -1,4 +1,4 @@
-// This is the template for each programmatically generated item in the shop. It will be populated with data from markdown files in the content folder.
+// This is the template for each programmatically generated item in the shop. It will be populated by our Sanity Project.
 
 import React from "react";
 import { graphql } from "gatsby";
@@ -39,32 +39,21 @@ const Description = styled.p`
   padding: 10px;
 `
 
-// const Dropdown = styled.select`
-//   display: block;
-//   padding: 10px;
-//   margin: 10px 0;
-//   background: ${props => props.theme.colors.secondaryAccent};
-//   font-weight: 700;
-//   border: none;
-//   outline: none;
-// `
-
-// const DropdownOption = styled.option`
-//   padding: 10px;
-//   background: ${props => props.theme.colors.secondaryAccent};
-//   font-weight: 700;
-//   border: none;
-//   outline: none;
-// `
-
 const BuyButton = styled.button`
   padding: 20px;
-  background: ${props => props.theme.colors.secondaryAccent};
+  border: 3px solid ${props => props.theme.colors.black};
+  background: white;
   font-weight: 700;
+  &:hover{
+    transform: scale(1.08);
+  }
 `
 
-export default function SingleItem({ data: { item } }) {
+export default function SingleItem({ data: { item, site } }) {
+
   // TODO: add OPTIONAL variable product functionality 
+  // This snippet is from Issy Dennis' Gatsby Snipcart Starter
+  // =========================================================
   // state = {
   //   selected: this.props.data.markdownRemark.frontmatter.customField.values[0].name
   // }
@@ -85,16 +74,12 @@ export default function SingleItem({ data: { item } }) {
   // updatePrice = (basePrice, values) => {
   //   const selectedOption = values.find(option => option.name === this.state.selected)
   //   return (basePrice + selectedOption.priceChange).toFixed(2)
-
   // }
 
-  
-    // const item = this.props.data.markdownRemark
-    // const siteTitle = item.site.siteMetadata.title
-    console.log(item);
+    const siteTitle = site.siteMetadata.title
 
     return (
-      <Layout  >
+      <Layout location={siteTitle} >
         <Product>
           <div>
             <Heading>{item.title}</Heading>
@@ -121,11 +106,7 @@ export default function SingleItem({ data: { item } }) {
         </Product>
       </Layout>
     )
-
-  
 }
-
-
 
 export const pageQuery = graphql`
   query ItemBySlug($slug: String!) {

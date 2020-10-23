@@ -34,16 +34,9 @@ const ExternalLink = styled.a`
 
 class Layout extends React.Component {
 
-  // componentDidMount() {
-  //   if (window.Snipcart) {
-  //     window.Snipcart.api.configure('show_continue_shopping', true);
-  //   }
-  // }
-
-
   render() {
     const { location, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
+    // const rootPath = `${__PATH_PREFIX__}/`
     const siteName = "gatsby-snipcart-sanity"
 
     return (

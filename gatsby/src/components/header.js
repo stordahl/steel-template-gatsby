@@ -29,15 +29,18 @@ const CartSummary = styled.div`
     font-weight: bold;
 `
 class HeaderMinor extends Component {
-  state = {
-    items: 0
-  }
 
-  updateItemTotal = (qty) => {
-    this.setState({ items: qty })
-  }
+  // TODO: fix this shit ⬇️ or figure out if it's even necessary w/ Snipcart v3 plugin
+  // This snippet is from Issy Dennis' Gatsby Snipcart Starter
+  // =========================================================
+  // state = {
+  //   items: 0
+  // }
 
-  // TODO: fix this shit ⬇️
+  // updateItemTotal = (qty) => {
+  //   this.setState({ items: qty })
+  // }
+
   // componentDidMount() {
   //   if (window.Snipcart) {
   //     //this allows it to work when switching pages
@@ -63,7 +66,6 @@ class HeaderMinor extends Component {
   //   window.Snipcart.unsubscribe('cart.ready');
   // }
 
-
   render() {
     return (
       <HeaderMinorStyled>
@@ -73,17 +75,14 @@ class HeaderMinor extends Component {
           </LinkStyled>
         </ShopName>
         <CartSummary className="snipcart-summary">
-          <a href="#" className="snipcart-checkout"> 
-            {/* <ShoppingCart size='40px' /> */}
+          <a href="#" className="snipcart-checkout cart"> 
             🛒
           </a>
           <p>{this.state.items} items in cart</p>
         </CartSummary>
-
       </HeaderMinorStyled>
     )
   }
-
 }
 
 export default HeaderMinor;

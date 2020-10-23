@@ -16,7 +16,7 @@ const ThumbnailsWrapper = styled.div`
     margin: 1rem auto;
 `
 
-export default function IndexPage({ data, pageContext }) {
+export default function IndexPage({ data }) {
   
     const siteTitle = data.site.siteMetadata.title
     const items = data.prods.nodes
