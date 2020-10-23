@@ -1,12 +1,12 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com" >
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+<p align="center" style="display:flex; align-items:center; justify-content:center;">
+  <a href="https://www.gatsbyjs.com" style="margin:1rem;">
+    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" height="60"/>
   </a>
-  <a href="https://www.snipcart.com">
-    <img alt="Snipcart" src="https://snipcart.com/media/204311/data-structure-logo.png" width="60" /> 
+  <a href="https://www.snipcart.com" style="margin:1rem;">
+    <img alt="Snipcart" src="https://snipcart.com/media/204311/data-structure-logo.png" width="60" height="60"/> 
   </a>
-  <a href="https://www.sanity.io">
-    <img alt="Sanity" src="https://www.sanity.io/static/images/logo.png" width="120" />
+  <a href="https://www.sanity.io" style="margin:1rem;">
+    <img alt="Sanity" src="https://www.sanity.io/static/images/logo.png" width="120" height="30"/>
   </a>
 </p>
 <h1 align="center">
@@ -15,32 +15,38 @@
 
 ## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
-
-    Use the Gatsby CLI to create a new site, specifying the hello-world starter.
+1.  Clone the repo
 
     ```shell
-    # create a new Gatsby site using the hello-world starter
-    gatsby new my-hello-world-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
+    git clone https://github.com/stordahl/gatsby-snipcart-sanity.git
+
+    # or with github CLI
+    gh repo clone stordahl/gatsby-snipcart-sanity
     ```
 
-1.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
+2.  Install all dependencies within the Gatsby Front-End
 
     ```shell
-    cd my-hello-world-starter/
-    gatsby develop
+    cd gatsby-snipcart-sanity/gatsby
+    npm i
     ```
 
-1.  **Open the source code and start editing!**
+3.  Delete the 'content' directory & run the following commands from the Gatsby directory
+    ```shell
+    cd ..
+    npm install -g @sanity/cli 
+    sanity init
+    ```
+    and then follow the CLI instructions to spin up a new Sanity Project. Learn more about the Sanity CLI [here](https://www.sanity.io/docs/getting-started-with-sanity-cli).
 
-    Your site is now running at `http://localhost:8000`!
+4. Place your Sanity *project ID & dataset name*, as well as you *Snipcart API key* into gatsby-config.js 
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
+5. Edit the details of *gatsby-plugin-manifest* in gatsby-config.js
 
-    Open the `my-hello-world-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
+## 👋 Contributing
+
+If you'd like to contribute to this starter, just make a PR! Also, if you'd like to help me maintain the codebase at all, just get in touch. This would be a great opportunity for people who are new to contributing to OSS!
 
 
 ## 💫 Deploy
