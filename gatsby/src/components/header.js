@@ -29,18 +29,17 @@ const CartSummary = styled.div`
     font-weight: bold;
 `
 class HeaderMinor extends Component {
+  state = {
+    items: 0
+  }
+
+  updateItemTotal = (qty) => {
+    this.setState({ items: qty })
+  }
 
   // TODO: fix this shit ⬇️ or figure out if it's even necessary w/ Snipcart v3 plugin
   // This snippet is from Issy Dennis' Gatsby Snipcart Starter
   // =========================================================
-  // state = {
-  //   items: 0
-  // }
-
-  // updateItemTotal = (qty) => {
-  //   this.setState({ items: qty })
-  // }
-
   // componentDidMount() {
   //   if (window.Snipcart) {
   //     //this allows it to work when switching pages
