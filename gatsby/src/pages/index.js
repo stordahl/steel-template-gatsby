@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 
-import ItemThumbnail from '../components/ItemThumbnail';
+import ItemThumbnail from '../components/itemThumbnail';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
