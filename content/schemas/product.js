@@ -6,12 +6,14 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string'
+      type: 'string',
+      validation: Rule => Rule.required()
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      validation: Rule => Rule.required(),
       options: {
         source: 'title',
         maxLength: 96
@@ -20,7 +22,8 @@ export default {
     {
       title: 'Default variant',
       name: 'defaultProductVariant',
-      type: 'productVariant'
+      type: 'productVariant',
+      validation: Rule => Rule.required()
     },
     {
       title: 'Variants',
@@ -55,7 +58,8 @@ export default {
     {
       name: 'blurb',
       title: 'Blurb',
-      type: 'localeString'
+      type: 'localeString',
+      validation: Rule => Rule.required()
     },
     {
       name: 'categories',
@@ -71,7 +75,8 @@ export default {
     {
       name: 'body',
       title: 'Body',
-      type: 'localeBlockContent'
+      type: 'localeBlockContent',
+      validation: Rule => Rule.required()
     }
   ],
 
