@@ -31,15 +31,16 @@ export default function IndexPage({ data }) {
               id, 
               slug: { current }, 
               blurb,
-              defaultProductVariant: { price, images }  
+              variants, 
             } = item
+            console.log(item)
             return (
               <ItemThumbnail
                 key={id}
                 link={'products/' + current}
                 heading={title}
-                image={images[0].asset.fluid}
-                price={price}
+                image={variants[0].images[0].asset.fluid}
+                price={variants[0].price}
                 description={blurb.en}
               />
             )
@@ -62,21 +63,23 @@ export const pageQuery = graphql`
         blurb {
           en
         }
-        defaultProductVariant {
-          price
-          images {
-            asset {
-              fluid(maxWidth: 400) {
-                ...GatsbySanityImageFluid
-              }
-            }
-          }
-        }
         title
         slug {
           current
         }
         id
+        variants {
+          price
+          images {
+            asset {
+              assetId
+              description
+              fluid(maxWidth: 800) {
+                src
+              }
+            }
+          }
+        }
       }
   }
   }

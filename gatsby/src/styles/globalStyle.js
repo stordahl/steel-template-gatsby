@@ -3,6 +3,11 @@ import { theme } from './theme'
 
 export const GlobalStyle = createGlobalStyle`
 
+   html, body {
+      width: 100vw;
+      overflow-x: hidden;
+   }
+
     html{
        background: ${theme.colors.bg};
        color: ${theme.colors.black};
