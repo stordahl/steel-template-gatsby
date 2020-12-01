@@ -9,5 +9,6 @@ export const theme = {
     secondaryAccent: '#999E90', //used for header border and item buttons
     bg: '#FFFFFF',
     black: '#1F1F1F',
+    white: '#FFFFFF'
   }
 };

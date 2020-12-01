@@ -9,7 +9,7 @@ exports.createPages = ({ graphql, actions }) => {
       query {
         allSanityProduct {
           nodes {
-            defaultProductVariant {
+            variants {
               price
             }
             title
