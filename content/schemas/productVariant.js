@@ -6,7 +6,8 @@ export default {
     {
       title: 'Title',
       name: 'title',
-      type: 'string'
+      type: 'string',
+      validation: Rule => Rule.required()
     },
     {
       title: 'Weight in grams',
@@ -16,7 +17,8 @@ export default {
     {
       title: 'Price',
       name: 'price',
-      type: 'number'
+      type: 'number',
+      validation: Rule => Rule.required()
     },
     {
       title: 'SKU',
@@ -39,7 +41,8 @@ export default {
             hotspot: true
           }
         }
-      ]
+      ],
+      validation: Rule => Rule.required(),
     },
     {
       title: 'Bar code',

@@ -20,21 +20,22 @@ export default {
       }
     },
     {
-      title: 'Default variant',
-      name: 'defaultProductVariant',
-      type: 'productVariant',
-      validation: Rule => Rule.required()
-    },
-    {
       title: 'Variants',
       name: 'variants',
       type: 'array',
+      validation: Rule => Rule.required().min(1),
       of: [
         {
           title: 'Variant',
           type: 'productVariant'
         }
       ]
+    },
+    {
+      title: 'Variation Type',
+      name: 'variant_type',
+      type: 'string',
+      description: 'Sizes, Colors, etc',
     },
     {
       title: 'Tags',
