@@ -37,34 +37,6 @@ class HeaderMinor extends Component {
     this.setState({ items: qty })
   }
 
-  // TODO: fix this shit ⬇️ or figure out if it's even necessary w/ Snipcart v3 plugin
-  // This snippet is from Issy Dennis' Gatsby Snipcart Starter
-  // =========================================================
-  // componentDidMount() {
-  //   if (window.Snipcart) {
-  //     //this allows it to work when switching pages
-  //     var count = window.Snipcart.api.items.count();
-  //     this.updateItemTotal(count)
-
-  //     //this allows it to work when you add or change items
-  //     window.Snipcart.subscribe('cart.closed', () => {
-  //       var count = window.Snipcart.api.items.count();
-  //       this.updateItemTotal(count)
-  //     });
-
-  //     //this allows it to work on refreshing the page
-  //     window.Snipcart.subscribe('cart.ready', (data) => {
-  //       var count = window.Snipcart.api.items.count();
-  //       this.updateItemTotal(count)
-  //     })
-  //   }
-  // }
-
-  // componentWillUnmount() {
-  //   window.Snipcart.unsubscribe('cart.closed');
-  //   window.Snipcart.unsubscribe('cart.ready');
-  // }
-
   render() {
     return (
       <HeaderMinorStyled>

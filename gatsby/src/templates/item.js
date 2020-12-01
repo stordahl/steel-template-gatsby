@@ -115,6 +115,7 @@ const BuyButton = styled.button`
   }
 `
 
+
 export default class SingleItem extends React.Component {
   state = {
     item: this.props.data.item,
