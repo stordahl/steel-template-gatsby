@@ -58,10 +58,10 @@ If you'd like to contribute to this starter, just make a PR! Also, if you'd like
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/stordahl/gatsby-snipcart-sanity)
 
 ## 🚗 Roadmap
-Features currently in development:
-- Add digital goods via Sanity Studio, & conditionally render in storefront
-- Create more robust theme system for easy theming via single js file
-- Add Store/Shop data type to Sanity for things like store name, social links, etc
+Features currently in development for future versions:
+- [ ] Add digital goods via Sanity Studio, & conditionally render in storefront
+- [ ] Create more robust theme system for easy theming via single js file
+- [ ] Add Store/Shop data type to Sanity for things like store name, social links, etc
 
 ## 📣 Shoutouts
 This starter inspired by [Wes Bos'](https://github.com/wesbos) *Master Gatsby* course, as well as the gatsby-snipcart starter by [Issy Dennis](https://github.com/issydennis/gatsby-snipcart)
