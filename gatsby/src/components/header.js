@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components"
 import { Link } from "gatsby";
 
@@ -8,12 +8,16 @@ const HeaderMinorStyled = styled.div`
     justify-content: space-between;
     align-items: center;
     margin: 20px 0;
+    font-family: var(--bodyFont)
 `
 const ShopName = styled.h1`
     padding: 20px;
     font-family: Heebo, sans-serif;
     font-size: 2rem;
     font-weight: 700;
+    font-family: var(--headingFont);
+    font-size: var(--headingSize);
+    color: var(--headingColor);
 `
 const LinkStyled = styled(Link)`
     box-shadow: none;
@@ -28,60 +32,31 @@ const CartSummary = styled.div`
     padding: 10px;
     font-weight: bold;
 `
-class HeaderMinor extends Component {
-  state = {
-    items: 0
-  }
 
-  updateItemTotal = (qty) => {
-    this.setState({ items: qty })
-  }
+function HeaderMinor(props) {
+  const [items, updateItems] = useState(0)
 
-  // TODO: fix this shit ⬇️ or figure out if it's even necessary w/ Snipcart v3 plugin
-  // This snippet is from Issy Dennis' Gatsby Snipcart Starter
-  // =========================================================
-  // componentDidMount() {
-  //   if (window.Snipcart) {
-  //     //this allows it to work when switching pages
-  //     var count = window.Snipcart.api.items.count();
-  //     this.updateItemTotal(count)
-
-  //     //this allows it to work when you add or change items
-  //     window.Snipcart.subscribe('cart.closed', () => {
-  //       var count = window.Snipcart.api.items.count();
-  //       this.updateItemTotal(count)
-  //     });
-
-  //     //this allows it to work on refreshing the page
-  //     window.Snipcart.subscribe('cart.ready', (data) => {
-  //       var count = window.Snipcart.api.items.count();
-  //       this.updateItemTotal(count)
-  //     })
-  //   }
-  // }
-
-  // componentWillUnmount() {
-  //   window.Snipcart.unsubscribe('cart.closed');
-  //   window.Snipcart.unsubscribe('cart.ready');
-  // }
-
-  render() {
+  useEffect(() => {
+    const count = window.Snipcart.store.getState().cart.items.count
+    updateItems(count)
+  }, [items]);
+  
     return (
       <HeaderMinorStyled>
         <ShopName>
           <LinkStyled to='/'>
-            {this.props.shopName}
+            {props.shopName}
           </LinkStyled>
         </ShopName>
         <CartSummary className="snipcart-summary">
           <a href="#" className="snipcart-checkout cart"> 
             🛒
           </a>
-          <p>{this.state.items} items in cart</p>
+          <p>{items} items in cart</p>
         </CartSummary>
       </HeaderMinorStyled>
-    )
-  }
+    );
+  
 }
 
 export default HeaderMinor;
