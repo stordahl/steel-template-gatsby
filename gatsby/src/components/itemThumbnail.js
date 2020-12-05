@@ -11,6 +11,7 @@ const ItemThumbnailStyled = styled.div`
     justify-content: center;
     margin: 0 20px;
     height: max-content;
+    font-family: var(--bodyFont)
 `
 
 const Heading = styled.h3`
@@ -20,7 +21,6 @@ const Heading = styled.h3`
     text-align: center;
     width: 100%;
     margin: auto;
-    
 `
 
 const LinkStyled = styled(Link)`
@@ -35,14 +35,11 @@ const LinkStyled = styled(Link)`
 `
 
 const DescStyled = styled.div`
-
 `
 
 const ImgStyled = styled(Img)`
     width: 250px;
     height: 250px;
-    
-
     @media (max-width: 930px) {
         height: 250px;
       }

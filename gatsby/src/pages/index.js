@@ -33,7 +33,6 @@ export default function IndexPage({ data }) {
               blurb,
               variants, 
             } = item
-            console.log(item)
             return (
               <ItemThumbnail
                 key={id}

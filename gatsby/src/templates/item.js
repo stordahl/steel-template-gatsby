@@ -4,7 +4,6 @@ import React from "react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components"
-
 import Layout from "../components/layout";
 
 const Product = styled.div`
@@ -13,14 +12,12 @@ const Product = styled.div`
   align-items: center;
   width: max-content;
   margin: 0 auto;
+  font-family: var(--bodyFont);
   & > div{
     margin: 1rem;
     width: 400px;
     max-width: 80vw;
     margin: 1rem;
-    @media screen and (min-width: 768px){
-      margin: 1rem;
-    }
   }
   & > div > label {
     margin-left:.5rem;
@@ -37,6 +34,9 @@ const Heading = styled.h1`
   font-weight: 900;
   font-size: 1.5em;
   margin: 20px 0;
+  font-family: var(--subheadingFont);
+  font-size: var(--subheadingSize);
+  color: var(--subheadingColor);
 `
 
 const ImgStyled = styled(Img)`
@@ -52,12 +52,17 @@ const Price = styled.p`
   margin-bottom: 10px;
   padding: 10px;
   font-weight: 700;
+  font-family: var(--bodyFont);
+  color: var(--bodyColor);
   font-size: 2rem;
 `
 
 const Description = styled.p`
   margin-bottom: 20px;
   padding: 10px;
+  font-family: var(--bodyFont);
+  font-size: var(--bodySize);
+  color: var(--bodyColor);
 `
 
 const Dropdown = styled.select`
@@ -65,9 +70,11 @@ const Dropdown = styled.select`
   display: block;
   padding: 10px;
   margin: 10px 0;
-  background: ${props => props.theme.colors.white};
   font-weight: 700;
-  border: 3px solid ${props => props.theme.colors.black};
+  font-family: var(--bodyFont);
+  background: var(--bg); 
+  border: var(--border);
+  border-radius: var(--borderRadius);
   outline: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -82,7 +89,7 @@ const Dropdown = styled.select`
     transform: translateY(-2px);
   }
   &:hover > option {
-    color: ${props => props.theme.colors.black};
+    color: var(--black);
   }
 `
 
@@ -98,7 +105,10 @@ const InputWrap = styled.div`
 
 const DropdownOption = styled.option`
   padding: 20px;
-  background: ${props => props.theme.colors.white};
+  background: var(--bg);
+  color: var(--bodyColor);
+  font-family: var(--bodyFont);
+  font-size: var(--bodySize);
   font-weight: 700;
   border: none;
   outline: none;
@@ -106,15 +116,10 @@ const DropdownOption = styled.option`
 `
 
 const BuyButton = styled.button`
-  padding: 5px;
-  border: 3px solid ${props => props.theme.colors.black};
-  background: white;
-  font-weight: 700;
   &:hover{
     transform: rotate(2deg);
   }
 `
-
 
 export default class SingleItem extends React.Component {
   state = {

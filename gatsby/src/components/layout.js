@@ -1,6 +1,5 @@
 import React from "react";
-import styled, { ThemeProvider } from 'styled-components';
-import { theme } from '../styles/theme';
+import styled from 'styled-components';
 import { GlobalStyle } from '../styles/globalStyle';
 
 import Header from './header';
@@ -22,13 +21,19 @@ const FooterStyled = styled.footer`
   width: 100%;
   padding: 20px;
   text-align: center;
+  font-family: var(--bodyFont);
 
   @media (max-width: 600px) {
     text-align: center;
   }
 `
 const ExternalLink = styled.a`
-  color: ${theme.colors.black};
+  color: var(--linkColor);
+  font-family: var(--linkFont);
+
+  &:hover {
+    text-decoration: var(--linkDecoration);
+  }
 `
 
 
@@ -39,7 +44,6 @@ class Layout extends React.Component {
     const siteName = "gatsby-snipcart-sanity"
 
     return (
-      <ThemeProvider theme={theme}>
         <>
           <GlobalStyle />
           <PageWrapper>
@@ -50,7 +54,6 @@ class Layout extends React.Component {
             </FooterStyled>
           </PageWrapper>
         </>
-      </ThemeProvider>
     )
   }
 }
