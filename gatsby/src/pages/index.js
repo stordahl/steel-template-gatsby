@@ -2,7 +2,8 @@ import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 
-import ItemThumbnail from '../components/itemThumbnail';
+import CategoriesFilter from '../components/CategoriesFilter'
+import ItemThumbnail from '../components/itemThumbnail'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -18,12 +19,13 @@ const ThumbnailsWrapper = styled.div`
 
 export default function IndexPage({ data }) {
   
-    const siteTitle = data.site.siteMetadata.title
+    const siteTitle = data.allSite.nodes[0].siteMetadata.title
     const items = data.prods.nodes
 
     return (
       <Layout  title={siteTitle}>
         <SEO title="All items" />
+        <CategoriesFilter />
         <ThumbnailsWrapper>
           {items.map(( item ) => {
             const { 
@@ -51,13 +53,17 @@ export default function IndexPage({ data }) {
 }
 
 export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
+  query ProdQuery($category: [String]){
+    allSite {
+      nodes {
+        siteMetadata {
+          title
+        }
       }
     }
-    prods: allSanityProduct {
+    prods: allSanityProduct(
+      filter:{ categories: { elemMatch: { title: { in: $category }}}}
+    ) {
       nodes {
         blurb {
           en

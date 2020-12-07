@@ -22,6 +22,10 @@ const FooterStyled = styled.footer`
   padding: 20px;
   text-align: center;
   font-family: var(--bodyFont);
+  & > * {
+    display: block;
+    margin-bottom: 1.2rem;
+  }
 
   @media (max-width: 600px) {
     text-align: center;
@@ -40,7 +44,7 @@ const ExternalLink = styled.a`
 class Layout extends React.Component {
 
   render() {
-    const { location, children } = this.props
+    const {  children } = this.props
     const siteName = "gatsby-snipcart-sanity"
 
     return (
@@ -50,7 +54,8 @@ class Layout extends React.Component {
             <Header shopName={siteName} />
             <MainSection>{children}</MainSection>
             <FooterStyled>
-              <strong>Built with Gatsby by  <ExternalLink href="https://blkcatstudio.com" target="_blank" rel="noopener noreferrer">Black Cat Studio</ExternalLink></strong>
+              <strong>Built by <ExternalLink href="https://stordahl.dev" target="_blank" rel="noopener noreferrer">Jacob Stordahl</ExternalLink></strong>
+              <strong>Contribute to this open source project on <ExternalLink href="https://github.com/stordahl/gatsby-snipcart-sanity" target="_blank" rel="noopener noreferrer">Github</ExternalLink></strong>
             </FooterStyled>
           </PageWrapper>
         </>

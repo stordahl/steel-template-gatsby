@@ -121,6 +121,9 @@ const BuyButton = styled.button`
   }
 `
 
+//find index of variant with digital verison
+  const isDigital = (elem) => elem.digital === true
+
 export default class SingleItem extends React.Component {
   state = {
     item: this.props.data.item,
@@ -149,9 +152,13 @@ export default class SingleItem extends React.Component {
     render(){
       let item = this.state.item
       let selected = this.state.selected
-      const siteTitle = 'site title';
+      const siteTitle = 'site title'
+      
 
-      if(item.variants.length === 1){
+      const digitalVersion = item.variants.findIndex(isDigital)
+      console.log(digitalVersion)
+
+      if(item.variants.length === 1 && digitalVersion === -1){
         return (
           <Layout location={siteTitle} >
             <Product>
@@ -179,7 +186,80 @@ export default class SingleItem extends React.Component {
             </Product>
           </Layout>
         )
-      } else {
+       } 
+      else if(digitalVersion !== -1) {
+        if (item.variants.length > 1){
+        return (
+          <Layout location={siteTitle} >
+            <Product>
+              <div>
+                <Heading>{item.title}</Heading>
+                  <ImgStyled fluid={item.variants[0].images[0].asset.fluid} />
+              </div>
+              <div>
+                <Price>${selected.price}</Price>
+                <Description>{item.body.en[0].children[0].text}</Description>
+                <label>{item.variant_type}</label>
+                <InputWrap>
+                    <Dropdown
+                      id={item.title}
+                      onChange={(e) => this.setSelected(e.target.value)}
+                      value={this.state.selected.title}>
+                      {item.variants.map((option) => (<DropdownOption key={option.title}>{option.title}</DropdownOption>))}
+                    </Dropdown>
+                  <BuyButton
+                    className='snipcart-add-item'
+                    data-item-id={item.id}
+                    data-item-price={this.state.selected.price}
+                    data-item-name={item.title}
+                    data-item-description={item.blurb.en}
+                    data-item-image={item.variants[0].images[0].asset.fluid.src}
+                    data-item-url={"https://gatsbysnipcartsanity.netlify.app/products/" + item.slug.current} //REPLACE WITH OWN URL
+                    data-item-custom1-name={item.variant_type}
+                    data-item-custom1-options={this.createString(item.variants)}
+                    data-item-custom1-value={selected.title}
+                    data-item-file-guid={item.variants[digitalVersion].guid}
+                  >
+                    Add to cart
+                  </BuyButton>
+                </InputWrap>
+              </div>
+            </Product>
+          </Layout>
+          )
+        } else {
+          return (
+          <Layout location={siteTitle} >
+            <Product>
+              <div>
+                <Heading>{item.title}</Heading>
+                  <ImgStyled fluid={item.variants[0].images[0].asset.fluid} />
+              </div>
+              <div>
+                <Price>${selected.price}</Price>
+                <Description>{item.body.en[0].children[0].text}</Description>
+                <label>{item.variant_type}</label>
+                <InputWrap>
+                  <BuyButton
+                    className='snipcart-add-item'
+                    data-item-id={item.id}
+                    data-item-price={this.state.selected.price}
+                    data-item-name={item.title}
+                    data-item-description={item.blurb.en}
+                    data-item-image={item.variants[0].images[0].asset.fluid.src}
+                    data-item-url={"https://gatsbysnipcartsanity.netlify.app/products/" + item.slug.current} //REPLACE WITH OWN URL
+                    data-item-file-guid={item.variants[digitalVersion].guid}
+                  >
+                    Add to cart
+                  </BuyButton>
+                </InputWrap>
+              </div>
+            </Product>
+          </Layout>
+          )
+        }
+      } 
+      else {
         return (
           <Layout location={siteTitle} >
             <Product>
@@ -245,24 +325,22 @@ export const pageQuery = graphql`
         }
       }
       variants {
-        _key
-        _type
         title
         grams
         price
         sku
         taxable
-        _rawImages
-        _rawBarcode
+        digital
+        guid
         images {
-        asset {
-          assetId
-          description
-          fluid(maxWidth: 800) {
-            src
+          asset {
+            assetId
+            description
+            fluid(maxWidth: 800) {
+              src
+            }
           }
         }
-      }
       }
       variant_type
     }

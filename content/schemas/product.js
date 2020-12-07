@@ -51,12 +51,6 @@ export default {
       }
     },
     {
-      name: 'vendor',
-      title: 'Vendor',
-      type: 'reference',
-      to: {type: 'vendor'}
-    },
-    {
       name: 'blurb',
       title: 'Blurb',
       type: 'localeString',

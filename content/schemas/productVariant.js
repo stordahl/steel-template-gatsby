@@ -31,6 +31,16 @@ export default {
       type: 'boolean'
     },
     {
+      title: 'Digital',
+      name: 'digital',
+      type: 'boolean',
+    },
+    {
+      title: 'GUID',
+      name: 'guid',
+      type: 'string',
+    },
+    {
       name: 'images',
       title: 'Images',
       type: 'array',
