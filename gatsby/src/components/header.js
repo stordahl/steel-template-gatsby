@@ -5,10 +5,14 @@ import { Link } from "gatsby";
 const HeaderMinorStyled = styled.div`
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     margin: 20px 0;
-    font-family: var(--bodyFont)
+    font-family: var(--bodyFont);
+    @media screen and (min-width:600px){
+      flex-direction: row;
+    }
 `
 const ShopName = styled.h1`
     padding: 20px;
@@ -28,9 +32,12 @@ const CartSummary = styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     padding: 10px;
     font-weight: bold;
+    @media screen and (min-width: 600px){
+      align-items: flex-end;
+    }
 `
 
 function HeaderMinor(props) {
@@ -49,9 +56,9 @@ function HeaderMinor(props) {
           </LinkStyled>
         </ShopName>
         <CartSummary className="snipcart-summary">
-          <a href="#" className="snipcart-checkout cart"> 
-            🛒
-          </a>
+          <Link to="/" className="snipcart-checkout cart"> 
+            <span role="img" aria-label="cart">🛒</span>
+          </Link>
           <p>{items} items in cart</p>
         </CartSummary>
       </HeaderMinorStyled>
