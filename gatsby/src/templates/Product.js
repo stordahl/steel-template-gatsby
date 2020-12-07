@@ -149,8 +149,6 @@ export default class SingleItem extends React.Component {
     return (basePrice + selectedOption.priceChange).toFixed(2)
   }
 
-  
-
     render(){
       let item = this.state.item
       let selected = this.state.selected
@@ -242,12 +240,6 @@ export default class SingleItem extends React.Component {
                 <Description>{item.body.en[0].children[0].text}</Description>
                 <label>{item.variant_type}</label>
                 <InputWrap>
-                    {/* <Dropdown
-                      id={item.title}
-                      onChange={(e) => this.setSelected(e.target.value)}
-                      value={this.state.selected.title}>
-                      {item.variants.map((option) => (<DropdownOption key={option.title}>{option.title}</DropdownOption>))}
-                    </Dropdown> */}
                   <BuyButton
                     className='snipcart-add-item'
                     data-item-id={item.id}
@@ -256,9 +248,6 @@ export default class SingleItem extends React.Component {
                     data-item-description={item.blurb.en}
                     data-item-image={item.variants[0].images[0].asset.fluid.src}
                     data-item-url={"https://gatsbysnipcartsanity.netlify.app/products/" + item.slug.current} //REPLACE WITH OWN URL
-                    // data-item-custom1-name={item.variant_type}
-                    // data-item-custom1-options={this.createString(item.variants)}
-                    // data-item-custom1-value={selected.title}
                     data-item-file-guid={item.variants[digitalVersion].guid}
                   >
                     Add to cart
