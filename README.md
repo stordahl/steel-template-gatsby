@@ -60,7 +60,7 @@ If you'd like to contribute to this starter, just make a PR! Also, if you'd like
 ## 🚗 Roadmap
 Features currently in development for future versions:
 - [ ] Add digital goods via Sanity Studio, & conditionally render in storefront
-- [ ] Create more robust theme system for easy theming via single js file
+- [x] Create more robust theme system for easy theming via single js file
 - [ ] Add Store/Shop data type to Sanity for things like store name, social links, etc
 
 ## 📣 Shoutouts
