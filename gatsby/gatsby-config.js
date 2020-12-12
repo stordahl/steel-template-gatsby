@@ -5,6 +5,7 @@ module.exports = {
     description: 'A Gatsby + Sanity + Snipcart Ecommerce Starter 🍞',
   },
   plugins: [
+    `gatsby-plugin-fontawesome-css`,
     {
       resolve: 'gatsby-plugin-snipcartv3',
       options: {

@@ -8,6 +8,8 @@ import blockContent from './blockContent'
 import category from './category'
 import product from './product'
 import productVariant from './productVariant'
+import social from './social'
+import siteSettings from './siteSettings'
 
 import localeString from './locale/String'
 import localeText from './locale/Text'
@@ -30,6 +32,8 @@ export default createSchema({
     localeText,
     localeBlockContent,
     localeString,
-    productVariant
+    productVariant,
+    social,
+    siteSettings
   ])
 })

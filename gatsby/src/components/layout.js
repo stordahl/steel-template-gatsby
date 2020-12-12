@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { GlobalStyle } from '../styles/globalStyle';
 
 import Header from './header';
+import SocialLinks from './SocialLinks';
 
 
 
@@ -51,6 +52,7 @@ class Layout extends React.Component {
             <Header shopName={siteName} />
             <MainSection>{children}</MainSection>
             <FooterStyled>
+              <SocialLinks />
               <strong>Built by <ExternalLink href="https://stordahl.dev" target="_blank" rel="noopener noreferrer">Jacob Stordahl</ExternalLink></strong>
               <strong>Contribute to this open source project on <ExternalLink href="https://github.com/stordahl/gatsby-snipcart-sanity" target="_blank" rel="noopener noreferrer">Github</ExternalLink></strong>
             </FooterStyled>
