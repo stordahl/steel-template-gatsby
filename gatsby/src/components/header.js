@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components"
-import { Link } from "gatsby";
+import { Link } from "gatsby"
 
 const HeaderMinorStyled = styled.div`
     width: 100%;

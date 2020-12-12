@@ -5,11 +5,10 @@ import { GlobalStyle } from '../styles/globalStyle';
 import Header from './header';
 
 
-const PageWrapper = styled.div`
-  width: 100%;
-  margin: 0 auto;
-  width: 90%;
 
+const PageWrapper = styled.div`
+  width: 90%;
+  margin: 0 auto;
 `
 
 const MainSection = styled.main`
@@ -40,11 +39,9 @@ const ExternalLink = styled.a`
   }
 `
 
-
 class Layout extends React.Component {
-
   render() {
-    const {  children } = this.props
+    const { children } = this.props
     const siteName = "gatsby-snipcart-sanity"
 
     return (
