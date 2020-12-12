@@ -19,7 +19,7 @@ export default {
         title: 'Icon',
         name: 'icon',
         type: 'string',
-        description: 'go to this link to see what icon abreviation to use: https://fontawesome.com/icons?d=gallery&s=brands. You can only use icons from the "brands" collection of Font Awesome'
+        description: 'go to this link to see what icon abreviation to use: https://fontawesome.com/icons?d=gallery&s=brands. You can only use icons from the "brands" collection of Font Awesome',
         validation: Rule => Rule.required()
       }
     ]
