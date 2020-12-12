@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import { GlobalStyle } from '../styles/globalStyle';
 
 import Header from './header';
+import SocialLinks from './SocialLinks';
+
 
 
 const PageWrapper = styled.div`
-  width: 100%;
-  margin: 0 auto;
   width: 90%;
-
+  margin: 0 auto;
 `
 
 const MainSection = styled.main`
@@ -40,11 +40,9 @@ const ExternalLink = styled.a`
   }
 `
 
-
 class Layout extends React.Component {
-
   render() {
-    const {  children } = this.props
+    const { children } = this.props
     const siteName = "gatsby-snipcart-sanity"
 
     return (
@@ -54,6 +52,7 @@ class Layout extends React.Component {
             <Header shopName={siteName} />
             <MainSection>{children}</MainSection>
             <FooterStyled>
+              <SocialLinks />
               <strong>Built by <ExternalLink href="https://stordahl.dev" target="_blank" rel="noopener noreferrer">Jacob Stordahl</ExternalLink></strong>
               <strong>Contribute to this open source project on <ExternalLink href="https://github.com/stordahl/gatsby-snipcart-sanity" target="_blank" rel="noopener noreferrer">Github</ExternalLink></strong>
             </FooterStyled>
