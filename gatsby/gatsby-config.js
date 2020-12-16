@@ -7,6 +7,9 @@ module.exports = {
   plugins: [
     `gatsby-plugin-fontawesome-css`,
     {
+      resolve: `gatsby-plugin-styled-components`,
+    },
+    {
       resolve: 'gatsby-plugin-snipcartv3',
       options: {
         //this key is hooked up to a test snipcart account. replace this key with yours.
