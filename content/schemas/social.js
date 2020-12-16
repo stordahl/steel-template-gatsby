@@ -1,7 +1,7 @@
 export default {
     title: 'Social Link',
     name: 'social',
-    type: 'document',
+    type: 'object',
     fields: [
       {
         title: 'Name',
