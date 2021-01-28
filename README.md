@@ -35,7 +35,7 @@
     npm i
     ```
 
-3.  Delete the 'content' directory & run the following commands from the Gatsby directory
+3.  Delete the contents of the 'content' directory & run the following commands from inside the 'content' directory
     ```shell
     cd ..
     npm install -g @sanity/cli 
