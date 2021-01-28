@@ -59,9 +59,13 @@ If you'd like to contribute to this starter, just make a PR! Also, if you'd like
 
 ## 🚗 Roadmap
 Features currently in development for future versions:
-- [ ] Add digital goods via Sanity Studio, & conditionally render in storefront
+- [ ] Add digital goods via Sanity Studio, & conditionally render in storefront (currently in development at Snipcart
 - [x] Create more robust theme system for easy theming via single js file
-- [ ] Add Store/Shop data type to Sanity for things like store name, social links, etc
+- [x] Add Store/Shop data type to Sanity for things like store name, social links, etc
+
+## 💻 Gatsby-Snipcart-Sanity in Production!
+
+If you're using this starter in production & would like to be featured in the readme, send links to jacob@stordahl.dev
 
 ## 📣 Shoutouts
 This starter inspired by [Wes Bos'](https://github.com/wesbos) *Master Gatsby* course, as well as the gatsby-snipcart starter by [Issy Dennis](https://github.com/issydennis/gatsby-snipcart)
