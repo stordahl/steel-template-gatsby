@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://i.ibb.co/KjqyRKG/gatsbysnipcartsanity.png" alt="Gatsby Snipcart Sanity Logos" />
+  <img src="https://i.ibb.co/gSD4NmW/headbanging.gif" alt="Gatsby Snipcart Sanity Logos" />
 </p>
 <h1 align="center">
-  A
+  🤘🏻 A
   <a href="https://www.gatsbyjs.com" style="margin:1rem;">
     Gatsby
   </a>
@@ -14,7 +14,7 @@
   <a href="https://www.sanity.io" style="margin:1rem;">
     Sanity
   </a>
-  E-commerce starter
+  E-commerce starter 🤘🏻
 </h1>
 
 ## 🚀 Quick start
