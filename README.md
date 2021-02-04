@@ -1,6 +1,3 @@
-<p align="center">
-  <img src="https://i.ibb.co/gSD4NmW/headbanging.gif" alt="Gatsby Snipcart Sanity Logos" />
-</p>
 <h1 align="center">
   🤘🏻 A
   <a href="https://www.gatsbyjs.com" style="margin:1rem;">
@@ -16,6 +13,10 @@
   </a>
   E-commerce starter 🤘🏻
 </h1>
+
+<p align="center">
+  <img src="https://i.ibb.co/gSD4NmW/headbanging.gif" alt="Gatsby Snipcart Sanity Logos" />
+</p>
 
 ## 🚀 Quick start
 
