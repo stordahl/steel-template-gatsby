@@ -1,10 +1,10 @@
 // This is the template for each programmatically generated item in the shop. It will be populated by our Sanity Project.
-
 import React from "react";
-import { graphql } from "gatsby";
-import Img from "gatsby-image";
+import { siteMetadata } from "../../gatsby-config"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 import styled from "styled-components"
-import Layout from "../components/layout";
+import Layout from "../components/layout"
 
 const Product = styled.div`
   display: grid;
@@ -84,12 +84,13 @@ const Dropdown = styled.select`
   background-repeat: no-repeat;
   background-position-x: 100%;
   background-position-y: 5px;
+  color: var(--fontColor);
   &:hover {
     cursor: pointer;
     transform: translateY(-2px);
   }
   &:hover > option {
-    color: var(--black);
+    color: var(--fontColor);
   }
 `
 
@@ -122,7 +123,7 @@ const BuyButton = styled.button`
 `
 
 //find index of variant with digital verison
-  const isDigital = (elem) => elem.digital === true
+const isDigital = (elem) => elem.digital === true
 
 export default class SingleItem extends React.Component {
   state = {
@@ -177,7 +178,7 @@ export default class SingleItem extends React.Component {
                     data-item-name={item.title}
                     data-item-description={item.blurb.en}
                     data-item-image={item.variants[0].images[0].asset.fluid.src}
-                    data-item-url={"https://gatsbysnipcartsanity.netlify.app/products/" + item.slug.current} //REPLACE WITH OWN URL
+                    data-item-url={`${siteMetadata.siteUrl}/products/${item.slug.current}`}
                   >
                     Add to cart
                   </BuyButton>
@@ -214,7 +215,7 @@ export default class SingleItem extends React.Component {
                     data-item-name={item.title}
                     data-item-description={item.blurb.en}
                     data-item-image={item.variants[0].images[0].asset.fluid.src}
-                    data-item-url={"https://gatsbysnipcartsanity.netlify.app/products/" + item.slug.current} //REPLACE WITH OWN URL
+                    data-item-url={`${siteMetadata.siteUrl}/products/${item.slug.current}`}
                     data-item-custom1-name={item.variant_type}
                     data-item-custom1-options={this.createString(item.variants)}
                     data-item-custom1-value={selected.title}
@@ -247,7 +248,7 @@ export default class SingleItem extends React.Component {
                     data-item-name={item.title}
                     data-item-description={item.blurb.en}
                     data-item-image={item.variants[0].images[0].asset.fluid.src}
-                    data-item-url={"https://gatsbysnipcartsanity.netlify.app/products/" + item.slug.current} //REPLACE WITH OWN URL
+                    data-item-url={`${siteMetadata.siteUrl}/products/${item.slug.current}`}
                     data-item-file-guid={item.variants[digitalVersion].guid}
                   >
                     Add to cart
@@ -285,7 +286,7 @@ export default class SingleItem extends React.Component {
                     data-item-name={item.title}
                     data-item-description={item.blurb.en}
                     data-item-image={item.variants[0].images[0].asset.fluid.src}
-                    data-item-url={"https://gatsbysnipcartsanity.netlify.app/products/" + item.slug.current} //REPLACE WITH OWN URL
+                    data-item-url={`${siteMetadata.siteUrl}/products/${item.slug.current}`}
                     data-item-custom1-name={item.variant_type}
                     data-item-custom1-options={this.createString(item.variants)}
                     data-item-custom1-value={selected.title}

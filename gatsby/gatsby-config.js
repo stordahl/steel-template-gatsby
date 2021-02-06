@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby + Sanity + Snipcart Ecommerce Starter`,
-    siteUrl: 'https://gatsbysnipcartsanity.netlify.app',
+    title: `Gatsby + Sanity + Snipcart`,
+    siteUrl: 'https://gatsbysnipcartsanity.netlify.app/',
     description: 'A Gatsby + Sanity + Snipcart Ecommerce Starter 🍞',
+    author: 'stordahl'
   },
   plugins: [
     `gatsby-plugin-fontawesome-css`,

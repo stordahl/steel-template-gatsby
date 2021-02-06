@@ -22,7 +22,7 @@ const CategoryStyles = styled.div`
   }
 `
 
-function countProdsInCats(prods){
+const countProdsInCats = (prods) => {
     const counts = prods
     .map(prod => prod.categories)
     .flat()

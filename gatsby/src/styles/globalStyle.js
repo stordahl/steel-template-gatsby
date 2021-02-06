@@ -4,7 +4,7 @@ export const GlobalStyle = createGlobalStyle`
 
    :root{
       /* colors */
-      --black: #1f1f1f;
+      --black: #1F1F1F;
       --white: #FFF;
       --blue:  #2f5fee;
 
@@ -13,24 +13,25 @@ export const GlobalStyle = createGlobalStyle`
       --shadow: 0px 0px 15px #1f1f1f40;
       --fontColor: var(--black);
       --line-height: 1.2;
-      --border: 3px solid var(--black);
+      --border: 3px solid var(--fontColor);
       --borderRadius: 5px;
 
       /* Element properties */
       --headingFont: 'Mukta Mahee', sans-serif;
-      --headingColor: var(--black);
+      --headingColor: var(--fontColor);
       --headingSize: 2rem;
 
       --subheadingFont: 'Mukta Mahee', sans-serif;
-      --subheadingColor: var(--black);
+      --subheadingColor: var(--fontColor);
       --subheadingSize: 1.75rem;
 
       --bodyFont: 'Mukta Mahee', sans-serif;
-      --bodyColor: var(--black);
+      --bodyColor: var(--fontColor);
       --bodySize: 1.2rem;
 
-      --linkColor: var(--black);
+      --linkColor: var(--fontColor);
       --linkDecoration: underline;
+      --linkDecorationHover: none;
       --linkFont: var(--bodyFont);
       --linkSize: var(--bodySize); 
 
@@ -52,7 +53,7 @@ export const GlobalStyle = createGlobalStyle`
       width: 100vw;
       overflow-x: hidden;
       background: var(--bg);
-      color: var(--bodyColor);
+      color: var(--fontColor);
       font-family: var(--bodyFont);
       font-display: block;
    }
@@ -71,8 +72,30 @@ export const GlobalStyle = createGlobalStyle`
       text-decoration: var(--linkDecoration);
       color: var(--linkColor);
    }
+   a:hover {
+      text-decoration: var(--linkDecorationHover);
+   }
    p, h1, h2, h3, h4 {
       line-height: 1.5em;
+   }
+   h1, h2, h3 {
+      font-family: var(--headingFont);
+      color: var(--headingColor);
+   }
+   h1 {
+      font-size: var(--headingColor);
+   }
+   h4, h5, h6 {
+      font-family: var(--subheadingFont);
+      color: var(--subheadingColor);
+   }
+   h4 {
+      font-size: var(--subheadingSize);
+   }
+   p {
+      font-family: var(--bodyFont);
+      color: var(--bodyColor);
+      font-size: var(--bodySize);
    }
    input {
       outline: none !important;
@@ -94,6 +117,10 @@ export const GlobalStyle = createGlobalStyle`
    }
 
    /* Snipcart Cart Theme */
+   .snipcart * {
+      color: var(--fontColor) !important; /* i'm sorry */
+   }
+
    .snipcart-modal__container, .snipcart-layout.snipcart-modal, .snipcart-layout.snipcart-modal > .snipcart-cart-header, .snipcart-item-list.snipcart-item-list--no-shadow, .snipcart-layout__content > .snipcart-cart__content, .snipcart-cart__footer-col.cart__footer-discount-box.snipcart-cart__actions > .snipcart-discount-box.snipcart__font--secondary.snipcart-cart__discount-box, .snipcart-featured-payment-methods > h3 {
       background: var(--bg);
    }

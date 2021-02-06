@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components"
-import { Link } from "gatsby"
+import React, { useState, useEffect } from 'react'
+import { siteMetadata } from '../../gatsby-config'
+import styled from 'styled-components'
+import { Link } from 'gatsby'
 
-const HeaderMinorStyled = styled.div`
+const HeaderStyled = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -40,7 +41,7 @@ const CartSummary = styled.div`
     }
 `
 
-function HeaderMinor(props) {
+export default function Header() {
   const [items, updateItems] = useState(0)
 
   useEffect(() => {
@@ -49,10 +50,10 @@ function HeaderMinor(props) {
   }, [items]);
   
     return (
-      <HeaderMinorStyled>
+      <HeaderStyled>
         <ShopName>
           <LinkStyled to='/'>
-            {props.shopName}
+            {siteMetadata.title}
           </LinkStyled>
         </ShopName>
         <CartSummary className="snipcart-summary">
@@ -61,9 +62,7 @@ function HeaderMinor(props) {
           </Link>
           <p>{items} items in cart</p>
         </CartSummary>
-      </HeaderMinorStyled>
+      </HeaderStyled>
     );
   
 }
-
-export default HeaderMinor;
