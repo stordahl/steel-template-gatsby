@@ -1,8 +1,5 @@
-<p align="center">
-  <img src="https://i.ibb.co/KjqyRKG/gatsbysnipcartsanity.png" alt="Gatsby Snipcart Sanity Logos" />
-</p>
 <h1 align="center">
-  A
+  🤘🏻 A
   <a href="https://www.gatsbyjs.com" style="margin:1rem;">
     Gatsby
   </a>
@@ -14,8 +11,12 @@
   <a href="https://www.sanity.io" style="margin:1rem;">
     Sanity
   </a>
-  E-commerce starter
+  E-commerce starter 🤘🏻
 </h1>
+
+<p align="center">
+  <img src="https://i.ibb.co/gSD4NmW/headbanging.gif" alt="Gatsby Snipcart Sanity Logos" />
+</p>
 
 ## 🚀 Quick start
 
@@ -35,7 +36,7 @@
     npm i
     ```
 
-3.  Delete the 'content' directory & run the following commands from the Gatsby directory
+3.  Delete the contents of the 'content' directory & run the following commands from inside the 'content' directory
     ```shell
     cd ..
     npm install -g @sanity/cli 
@@ -56,6 +57,16 @@ If you'd like to contribute to this starter, just make a PR! Also, if you'd like
 ## 💫 Deploy
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/stordahl/gatsby-snipcart-sanity)
+
+## 🚗 Roadmap
+Features currently in development for future versions:
+- [ ] Add digital goods via Sanity Studio, & conditionally render in storefront (currently in development at Snipcart
+- [x] Create more robust theme system for easy theming via single js file
+- [x] Add Store/Shop data type to Sanity for things like store name, social links, etc
+
+## 💻 Gatsby-Snipcart-Sanity in Production!
+
+If you're using this starter in production & would like to be featured in the readme, send links to jacob@stordahl.dev
 
 ## 📣 Shoutouts
 This starter inspired by [Wes Bos'](https://github.com/wesbos) *Master Gatsby* course, as well as the gatsby-snipcart starter by [Issy Dennis](https://github.com/issydennis/gatsby-snipcart)
