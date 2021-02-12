@@ -1,7 +1,7 @@
 {
-  "name": "Gatsby_Sanity_Snipcart_Ecommerce_Starter",
+  "name": "steel-template-gatsby",
   "private": true,
-  "description": "Gatsby + Sanity + Snipcart Ecommerce Starter",
+  "description": "Steel is a sudo framework for building e-commerce websites.",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {

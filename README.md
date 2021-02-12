@@ -1,72 +1,35 @@
-<h1 align="center">
-  🤘🏻 A
-  <a href="https://www.gatsbyjs.com" style="margin:1rem;">
-    Gatsby
-  </a>
-  +
-  <a href="https://www.snipcart.com" style="margin:1rem;">
-    Snipcart
-  </a>
-  +
-  <a href="https://www.sanity.io" style="margin:1rem;">
-    Sanity
-  </a>
-  E-commerce starter 🤘🏻
-</h1>
+# steel-template-gatsby
 
-<p align="center">
-  <img src="https://i.ibb.co/gSD4NmW/headbanging.gif" alt="Gatsby Snipcart Sanity Logos" />
-</p>
+Steel is a sudo framework for building e-commerce websites. Learn more about the Steel ecosystem [here](https://github.com/stordahl/steel)
+
 
 ## 🚀 Quick start
 
-1.  Clone the repo
+0. Make sure you have your Steel Studio setup before moving forward. More info on that [here](https://github.com/stordahl/steel-studio)
 
-    ```shell
-    git clone https://github.com/stordahl/gatsby-snipcart-sanity.git
+1. Click the 'Use Template' button to generate your own repo
 
-    # or with github CLI
-    gh repo clone stordahl/gatsby-snipcart-sanity
-    ```
+2. Clone your new repo to your local machine
 
-2.  Install all dependencies within the Gatsby Front-End
+3. npm install the gatsby-cli and all dependencies
 
-    ```shell
-    cd gatsby-snipcart-sanity/gatsby
-    npm i
-    ```
+  ```shell
+    cd your-project-dir && npm i -g gatsby-cli && npm i
+  ```
 
-3.  Delete the contents of the 'content' directory & run the following commands from inside the 'content' directory
-    ```shell
-    cd ..
-    npm install -g @sanity/cli 
-    sanity init
-    ```
-    and then follow the CLI instructions to spin up a new Sanity Project. Learn more about the Sanity CLI [here](https://www.sanity.io/docs/getting-started-with-sanity-cli).
-
-4. Place your Sanity *project ID & dataset name*, as well as you *Snipcart API key* into gatsby-config.js 
+4. Place your Sanity *project ID & dataset name*, as well as your *Snipcart API key* into gatsby-config.js
 
 5. Edit the details of *gatsby-plugin-manifest* in gatsby-config.js
 
-
 ## 👋 Contributing
 
-If you'd like to contribute to this starter, just make a PR! Also, if you'd like to help me maintain the codebase at all, just get in touch. This would be a great opportunity for people who are new to contributing to OSS!
-
+If you'd like to contribute to this template, just make a PR! Also, if you'd like to help me maintain the Steel ecosystem at all, just get in touch. This would be a great opportunity for people who are new to contributing to OSS!
 
 ## 💫 Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/stordahl/gatsby-snipcart-sanity)
-
-## 🚗 Roadmap
-Features currently in development for future versions:
-- [ ] Add digital goods via Sanity Studio, & conditionally render in storefront (currently in development at Snipcart
-- [x] Create more robust theme system for easy theming via single js file
-- [x] Add Store/Shop data type to Sanity for things like store name, social links, etc
-
-## 💻 Gatsby-Snipcart-Sanity in Production!
-
-If you're using this starter in production & would like to be featured in the readme, send links to jacob@stordahl.dev
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/stordahl/steel-template-gatsby
+)
 
 ## 📣 Shoutouts
+
 This starter inspired by [Wes Bos'](https://github.com/wesbos) *Master Gatsby* course, as well as the gatsby-snipcart starter by [Issy Dennis](https://github.com/issydennis/gatsby-snipcart)
