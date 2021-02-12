@@ -1,5 +1,6 @@
+import { Link, graphql, useStaticQuery } from 'gatsby'
+
 import React from 'react'
-import { useStaticQuery, Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 const CategoryStyles = styled.div`
@@ -22,6 +23,7 @@ const CategoryStyles = styled.div`
   }
 `
 
+// TODO: comment out functions
 const countProdsInCats = (prods) => {
     const counts = prods
     .map(prod => prod.categories)

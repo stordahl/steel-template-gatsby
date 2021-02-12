@@ -1,10 +1,10 @@
 const path = require(`path`);
 
-async function TurnProductsIntoPages({ graphql, actions }) {
+const TurnProductsIntoPages = async ({ graphql, actions }) => {
   const product = path.resolve(`./src/templates/Product.js`)
   const { createPage } = actions
 
-  const { data }= await graphql(`
+  const { data: { products: { nodes } } } = await graphql(`
     query {
        products: allSanityProduct {
          nodes {
@@ -18,22 +18,22 @@ async function TurnProductsIntoPages({ graphql, actions }) {
      }
   `);
 
-  data.products.nodes.forEach(prod => 
+  for (node of nodes){ 
     createPage({
-        path: 'products/' + prod.slug.current,
+        path: 'products/' + node.slug.current,
         component: product,
         context: {
-          slug: prod.slug.current,
+          slug: node.slug.current,
         },
       })
-  )
+  }
 }
 
-async function TurnCategoriesIntoPages({ graphql, actions }) {
+const TurnCategoriesIntoPages = async ({ graphql, actions }) => {
   const category = path.resolve(`./src/pages/index.js`)
   const { createPage } = actions
 
-  const { data } = await graphql(`
+  const { data: { categories: { nodes } } } = await graphql(`
     query {
       categories: allSanityCategory {
         nodes {
@@ -47,16 +47,18 @@ async function TurnCategoriesIntoPages({ graphql, actions }) {
     }
   `);
 
-  data.categories.nodes.forEach(cat => 
+  for (node of nodes){
     createPage({
-        path: 'category/' + cat.slug.current,
+        path: 'category/' + node.slug.current,
         component: category,
         context: {
-          category: cat.title,
-          slug: cat.slug.current,
+          category: node.title,
+          slug: node.slug.current,
         },
       })
-  )
+  }
+    
+  
 }
 
 exports.createPages = async (params) => {
