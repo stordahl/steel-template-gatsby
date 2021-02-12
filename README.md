@@ -1,4 +1,4 @@
-# steel-template-gatsby
+# steel-template-gatsby 🧩
 
 Steel is a sudo framework for building e-commerce websites. Learn more about the Steel ecosystem [here](https://github.com/stordahl/steel)
 
