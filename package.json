@@ -1,0 +1,41 @@
+{
+  "name": "Gatsby_Sanity_Snipcart_Ecommerce_Starter",
+  "private": true,
+  "description": "Gatsby + Sanity + Snipcart Ecommerce Starter",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.13",
+    "babel-plugin-styled-components": "^1.12.0",
+    "dotenv": "^8.2.0",
+    "gatsby": "^2.24.79",
+    "gatsby-image": "^2.4.21",
+    "gatsby-plugin-fontawesome-css": "^1.0.0",
+    "gatsby-plugin-manifest": "^2.4.35",
+    "gatsby-plugin-react-helmet": "^3.3.14",
+    "gatsby-plugin-snipcartv3": "^2.3.3",
+    "gatsby-plugin-styled-components": "^3.7.0",
+    "gatsby-source-filesystem": "^2.3.35",
+    "gatsby-source-sanity": "^6.0.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.1.0",
+    "styled-components": "^5.2.1",
+    "styled-icons": "^10.22.0"
+  },
+  "devDependencies": {
+    "prettier": "2.1.2"
+  }
+}
