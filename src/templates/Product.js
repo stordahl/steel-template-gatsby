@@ -164,6 +164,7 @@ export default class SingleItem extends React.PureComponent {
 		const digitalVersion = item.variants.findIndex(isDigital);
 
 		if (item.variants.length === 1 && digitalVersion === -1) {
+			// single variant physical product
 			return (
 				<Layout location={siteTitle}>
 					<Product>
@@ -183,6 +184,7 @@ export default class SingleItem extends React.PureComponent {
 									data-item-description={item.blurb.en}
 									data-item-image={item.variants[0].images[0].asset.fluid.src}
 									data-item-url={`${siteMetadata.siteUrl}/products/${item.slug.current}`}
+									data-item-weight={item.variants[0].grams}
 								>
 									Add to cart
 								</BuyButton>
@@ -193,6 +195,7 @@ export default class SingleItem extends React.PureComponent {
 			);
 		} else if (digitalVersion !== -1) {
 			if (item.variants.length > 1) {
+				// multiple variant digital product
 				return (
 					<Layout location={siteTitle}>
 						<Product>
@@ -235,6 +238,7 @@ export default class SingleItem extends React.PureComponent {
 					</Layout>
 				);
 			} else {
+				// single variant digital project
 				return (
 					<Layout location={siteTitle}>
 						<Product>
@@ -266,6 +270,7 @@ export default class SingleItem extends React.PureComponent {
 				);
 			}
 		} else {
+			// multiple variant physical product
 			return (
 				<Layout location={siteTitle}>
 					<Product>
@@ -298,6 +303,7 @@ export default class SingleItem extends React.PureComponent {
 									data-item-custom1-name={item.variant_type}
 									data-item-custom1-options={this.createString(item.variants)}
 									data-item-custom1-value={selected.title}
+									data-item-weight={item.variants[item.variants.indexOf(selected)].grams}
 								>
 									Add to cart
 								</BuyButton>
