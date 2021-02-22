@@ -25,7 +25,7 @@
     "gatsby-plugin-fontawesome-css": "^1.0.0",
     "gatsby-plugin-manifest": "^2.4.35",
     "gatsby-plugin-react-helmet": "^3.3.14",
-    "gatsby-plugin-snipcartv3": "^2.3.3",
+    "gatsby-plugin-snipcart-advanced": "^1.0.2",
     "gatsby-plugin-styled-components": "^3.7.0",
     "gatsby-source-filesystem": "^2.3.35",
     "gatsby-source-sanity": "^6.0.4",
