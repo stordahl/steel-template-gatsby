@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
+import { SnipcartContext } from "gatsby-plugin-snipcart-advanced/context";
 import { siteMetadata } from '../../gatsby-config'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
@@ -42,12 +43,9 @@ const CartSummary = styled.div`
 `
 
 export default function Header() {
-  const [items, updateItems] = useState(0)
 
-  useEffect(() => {
-    const count = window.Snipcart.store.getState().cart.items.count
-    updateItems(count)
-  }, [items]);
+  const { state } = useContext(SnipcartContext);
+  const { userStatus, cartQuantity } = state;
   
     return (
       <HeaderStyled>
@@ -60,7 +58,7 @@ export default function Header() {
           <Link to="/" className="snipcart-checkout cart"> 
             <span role="img" aria-label="cart">🛒</span>
           </Link>
-          <p>{items} items in cart</p>
+          <p>{cartQuantity} items in cart</p>
         </CartSummary>
       </HeaderStyled>
     );

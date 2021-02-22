@@ -57,11 +57,13 @@ const Price = styled.p`
 `;
 
 const Description = styled.p`
-	margin-bottom: 20px;
-	padding: 10px;
+	padding: 7px;
 	font-family: var(--bodyFont);
 	font-size: var(--bodySize);
 	color: var(--bodyColor);
+	&:last-of-type {
+		margin-bottom: 25px;
+	}
 `;
 
 const Dropdown = styled.select`
@@ -171,7 +173,7 @@ export default class SingleItem extends React.PureComponent {
 						</div>
 						<div>
 							<Price>${selected.price}</Price>
-							<Description>{item.body.en[0].children[0].text}</Description>
+							{item.body.en.map(({children}) => <Description>{children[0].text}</Description>)}
 							<InputWrap>
 								<BuyButton
 									className="snipcart-add-item"
@@ -200,7 +202,7 @@ export default class SingleItem extends React.PureComponent {
 							</div>
 							<div>
 								<Price>${selected.price}</Price>
-								<Description>{item.body.en[0].children[0].text}</Description>
+								{item.body.en.map(({children}) => <Description>{children[0].text}</Description>)}
 								<label>{item.variant_type}</label>
 								<InputWrap>
 									<Dropdown
@@ -242,7 +244,7 @@ export default class SingleItem extends React.PureComponent {
 							</div>
 							<div>
 								<Price>${selected.price}</Price>
-								<Description>{item.body.en[0].children[0].text}</Description>
+								{item.body.en.map(({children}) => <Description>{children[0].text}</Description>)}
 								<label>{item.variant_type}</label>
 								<InputWrap>
 									<BuyButton
@@ -273,7 +275,7 @@ export default class SingleItem extends React.PureComponent {
 						</div>
 						<div>
 							<Price>${selected.price}</Price>
-							<Description>{item.body.en[0].children[0].text}</Description>
+							{item.body.en.map(({children}) => <Description>{children[0].text}</Description>)}
 							<label>{item.variant_type}</label>
 							<InputWrap>
 								<Dropdown
