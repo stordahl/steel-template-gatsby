@@ -23,6 +23,8 @@ Steel is a sudo framework for building e-commerce websites. Learn more about the
 
 5. Edit the details of *gatsby-plugin-manifest* in gatsby-config.js
 
+*note: you can use this template without connecting to the Steel Studio specifically. Just make sure your Snipcart related page queries match your Sanity schema, and verify the JSX template in /src/components/Product.js matches that query as well
+
 ## 👋 Contributing
 
 If you'd like to contribute to this template, just make a PR! Also, if you'd like to help me maintain the Steel ecosystem at all, just get in touch. This would be a great opportunity for people who are new to contributing to OSS!
