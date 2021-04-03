@@ -1,4 +1,6 @@
-# steel-template-gatsby
+<img src="https://i.ibb.co/WKwXSrv/steel-logo-01-01.jpg" alt="Steel Logo" width="200px"/>
+
+# steel-template-gatsby 🧩
 
 Steel is a sudo framework for building e-commerce websites. Learn more about the Steel ecosystem [here](https://github.com/stordahl/steel)
 
@@ -20,6 +22,8 @@ Steel is a sudo framework for building e-commerce websites. Learn more about the
 4. Place your Sanity *project ID & dataset name*, as well as your *Snipcart API key* into gatsby-config.js
 
 5. Edit the details of *gatsby-plugin-manifest* in gatsby-config.js
+
+*note: you can use this template without connecting to the Steel Studio specifically. Just make sure your Snipcart related page queries match your Sanity schema, and verify the JSX template in /src/components/Product.js matches that query as well
 
 ## 👋 Contributing
 

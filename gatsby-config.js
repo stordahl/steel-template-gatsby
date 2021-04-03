@@ -12,10 +12,10 @@ module.exports = {
       resolve: `gatsby-plugin-styled-components`,
     },
     {
-      resolve: 'gatsby-plugin-snipcartv3',
+      resolve: 'gatsby-plugin-snipcart-advanced',
       options: {
-        apiKey: '',
-        autopop: true,
+        version: "3.0.29",
+        publicApiKey: '',
       }
     },
     {
