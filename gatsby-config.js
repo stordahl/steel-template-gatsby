@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby + Sanity + Snipcart`,
-    siteUrl: 'https://gatsbysnipcartsanity.netlify.app/',
-    description: 'A Gatsby + Sanity + Snipcart Ecommerce Starter 🍞',
+    title: `steel-template-gatsby`,
+    //must be the url your frontend is deployed to!!!
+    siteUrl: '',
+    description: 'Steel is a sudo framework for headless ecommerce utilizing Snipcart & Sanity ',
     author: 'stordahl'
   },
   plugins: [
@@ -13,16 +14,15 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-snipcartv3',
       options: {
-        //this key is hooked up to a test snipcart account. replace this key with yours.
-        apiKey: 'NjlkYWExMDMtMDIyYi00NTVlLWE1YjItODc2NjBhNjQ4MWQ3NjM3Mzg5NzMxNTc2MjI4MDIy',
+        apiKey: '',
         autopop: true,
       }
     },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsbysnipcartsanity`,
-        short_name: `gss`,
+        name: `steel-template-gatsby`,
+        short_name: `stg`,
         start_url: `/`,
         background_color: `bg`,
         theme_color: `darkBlue`,
@@ -33,7 +33,7 @@ module.exports = {
     {
       resolve: `gatsby-source-sanity`,
       options: {
-        projectId: `rudszjz3`,
+        projectId: ``,
         dataset: `production`,
         // a token with read permissions is required
         // if you have a private dataset

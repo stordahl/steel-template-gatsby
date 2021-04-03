@@ -1,6 +1,5 @@
 import Img from 'gatsby-image';
 import Layout from '../components/layout';
-// This is the template for each programmatically generated item in the shop. It will be populated by our Sanity Project.
 import React from 'react';
 import { graphql } from 'gatsby';
 import { siteMetadata } from '../../gatsby-config';
