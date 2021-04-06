@@ -1,10 +1,13 @@
-import React from "react";
+import React from "react"
 import styled from "styled-components"
-import { Link } from "gatsby";
-import Img from "gatsby-image";
+import { Link } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
+import { getGatsbyImageData } from 'gatsby-source-sanity'
+
+import steel from '../steel-config'
 
 
-const ItemThumbnailStyled = styled.div`
+const ItemThumbnailStyled = styled.article`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,7 +17,7 @@ const ItemThumbnailStyled = styled.div`
     font-family: var(--bodyFont)
 `
 
-const Heading = styled.h3`
+const Heading = styled.h2`
     font-size: 1.3em;
     padding: 10px;
     font-weight: 900;
@@ -37,7 +40,7 @@ const LinkStyled = styled(Link)`
 const DescStyled = styled.div`
 `
 
-const ImgStyled = styled(Img)`
+const ImgStyled = styled(GatsbyImage)`
     width: 250px;
     height: 250px;
     @media (max-width: 930px) {
@@ -50,17 +53,20 @@ const Price = styled.p`
     font-size:1.5rem;
 `
 
-const itemThumbnail = (props) => {
+const itemThumbnail = ({link, image, heading, description, price}) => {
+
+  const imageData = getGatsbyImageData(image, {maxWidth: 600}, steel.sanity);
+  
   return (
     <ItemThumbnailStyled>
-      <LinkStyled to={props.link}>
-        <ImgStyled fluid={props.image} />
-        <Heading>{props.heading}</Heading>
+      <LinkStyled to={link}>
+        <ImgStyled image={imageData} alt={description}/>
+        <Heading>{heading}</Heading>
       </LinkStyled>
       <DescStyled>
-        {props.description}
+        {description}
       </DescStyled>
-      <Price>${props.price.toFixed(2)}</Price>
+      <Price>${price.toFixed(2)}</Price>
     </ItemThumbnailStyled>
   )
 }

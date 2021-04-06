@@ -20,7 +20,7 @@ const TurnProductsIntoPages = async ({ graphql, actions }) => {
 
   for (node of nodes){ 
     createPage({
-        path: 'products/' + node.slug.current,
+        path: '/' + node.slug.current,
         component: product,
         context: {
           slug: node.slug.current,
@@ -49,7 +49,7 @@ const TurnCategoriesIntoPages = async ({ graphql, actions }) => {
 
   for (node of nodes){
     createPage({
-        path: 'category/' + node.slug.current,
+        path: '/' + node.slug.current,
         component: category,
         context: {
           category: node.title,

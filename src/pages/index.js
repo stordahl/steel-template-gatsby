@@ -4,7 +4,8 @@ import styled from "styled-components"
 import CategoriesFilter from '../components/CategoriesFilter'
 import ItemThumbnail from '../components/itemThumbnail'
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/Seo"
+import steel from "../steel-config.js"
 
 const ThumbnailsWrapper = styled.div`
     width: 100%;
@@ -18,12 +19,12 @@ const ThumbnailsWrapper = styled.div`
 
 export default function IndexPage({ data }) {
   
-    const siteTitle = data.allSite.nodes[0].siteMetadata.title
+    const siteTitle = steel.title
     const items = data.prods.nodes
 
     return (
       <Layout  title={siteTitle}>
-        <SEO title="All items" />
+        <Seo title="All items" lang="en"/>
         <CategoriesFilter />
         <ThumbnailsWrapper>
           {items.map(( item ) => {
@@ -36,10 +37,11 @@ export default function IndexPage({ data }) {
             } = item
             return (
               <ItemThumbnail
+                node={item}
                 key={id}
-                link={'products/' + current}
+                link={'/' + current}
                 heading={title}
-                image={variants[0].images[0].asset.fluid}
+                image={variants[0].images[0].asset.id}
                 price={variants[0].price}
                 description={blurb.en}
               />
@@ -76,11 +78,7 @@ export const pageQuery = graphql`
           price
           images {
             asset {
-              assetId
-              description
-              fluid(maxWidth: 800) {
-                src
-              }
+              id
             }
           }
         }

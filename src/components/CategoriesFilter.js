@@ -1,7 +1,6 @@
-import { Link, graphql, useStaticQuery } from 'gatsby'
-
 import React from 'react'
 import styled from 'styled-components'
+import { Link, graphql, useStaticQuery } from 'gatsby'
 
 const CategoryStyles = styled.div`
   display: flex;
@@ -76,7 +75,7 @@ export default function CategoriesFilter() {
       </Link>
       {
         categoryCount.map(category => 
-          <Link to={`/category/${category.slug}`} key={category.id}>
+          <Link to={`/${category.slug}`} key={category.id}>
             <span className="name">{ category.title }</span>
             <span className="count">{ category.count }</span>
           </Link>

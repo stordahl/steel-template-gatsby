@@ -1,11 +1,15 @@
-import Img from 'gatsby-image';
-import Layout from '../components/layout';
-import React from 'react';
-import { graphql } from 'gatsby';
-import { siteMetadata } from '../../gatsby-config';
-import styled from 'styled-components';
+import React, { useState } from 'react'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { getGatsbyImageData } from 'gatsby-source-sanity'
+import { graphql } from 'gatsby'
+import styled from 'styled-components'
+import Helmet from 'react-helmet'
+import { createString, isDigital } from '../utils/utils'
+import Layout from '../components/layout'
+import { siteMetadata } from '../../gatsby-config'
+import steel from '../steel-config'
 
-const Product = styled.div`
+const ProductGrid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
 	align-items: center;
@@ -28,7 +32,6 @@ const Product = styled.div`
 		width: 100%;
 	}
 `;
-
 const Heading = styled.h1`
 	font-weight: 900;
 	font-size: 1.5em;
@@ -37,8 +40,7 @@ const Heading = styled.h1`
 	font-size: var(--subheadingSize);
 	color: var(--subheadingColor);
 `;
-
-const ImgStyled = styled(Img)`
+const ImgStyled = styled(GatsbyImage)`
   width: 400px;
   height: 400px;
   max-width: 80vw;
@@ -46,7 +48,6 @@ const ImgStyled = styled(Img)`
     width: 100%;
   }
 `;
-
 const Price = styled.p`
 	margin-bottom: 10px;
 	padding: 10px;
@@ -55,7 +56,6 @@ const Price = styled.p`
 	color: var(--bodyColor);
 	font-size: 2rem;
 `;
-
 const Description = styled.p`
 	padding: 7px;
 	font-family: var(--bodyFont);
@@ -65,7 +65,6 @@ const Description = styled.p`
 		margin-bottom: 25px;
 	}
 `;
-
 const Dropdown = styled.select`
 	position: relative;
 	display: block;
@@ -94,7 +93,6 @@ const Dropdown = styled.select`
 		color: var(--fontColor);
 	}
 `;
-
 const InputWrap = styled.div`
 	display: flex;
 	justify-content: space-between;
@@ -104,7 +102,6 @@ const InputWrap = styled.div`
 		margin: .5rem;
 	}
 `;
-
 const DropdownOption = styled.option`
 	padding: 20px;
 	background: var(--bg);
@@ -115,206 +112,77 @@ const DropdownOption = styled.option`
 	border: none;
 	outline: none;
 `;
-
 const BuyButton = styled.button`
 	&:hover {
 		transform: rotate(2deg);
 	}
 `;
 
-//find index of variant with digital verison
-const isDigital = (elem) => elem.digital === true;
+const Product = ({ data: { item }}) => {
+	const variants = item.variants
+  const options = variants.map(e => e.title)
 
-export default class SingleItem extends React.PureComponent {
-	state = {
-		item: this.props.data.item,
-		selected: this.props.data.item.variants[0]
-	};
+  const [selected, setSelected] = useState(variants[0])
 
-	setSelected = (value) => {
-		const variants = this.props.data.item.variants
-		const options = variants.map((e) => {
-			return e.title;
-		});
-		this.setState({ selected: variants[options.indexOf(value)] });
-	};
+  const imageData = getGatsbyImageData(variants[0].images[0].asset.id, {maxWidth: 600}, steel.sanity)
 
-	// create the string required by snipcart to allow price changes based on option chosen
-	// eg. S[+-1]|M[+0]|L[+1]|XL[+-1]
-	createString = (values) => {
-		return values
-			.map((option) => {
-				const price =
-					option.price >= 0 ? `[+${option.price - this.state.selected.price}]` : `[${option.price}]`;
-				return `${option.title}${price}`;
-			})
-			.join('|');
-	};
+	const digitalVersion = variants.findIndex(isDigital)
 
-	// calculate price based on option selected for display on item page
-	updatePrice = (basePrice, values) => {
-		const selectedOption = values.find((option) => option.title === this.state.selected);
-		return (basePrice + selectedOption.priceChange).toFixed(2);
-	};
-
-	render() {
-		const { item, selected } = this.state
-		const siteTitle = 'site title';
-
-		const digitalVersion = item.variants.findIndex(isDigital);
-
-		if (item.variants.length === 1 && digitalVersion === -1) {
-			// single variant physical product
-			return (
-				<Layout location={siteTitle}>
-					<Product>
-						<div>
-							<Heading>{item.title}</Heading>
-							<ImgStyled fluid={item.variants[0].images[0].asset.fluid} />
-						</div>
-						<div>
-							<Price>${selected.price}</Price>
-							{item.body.en.map(({children}) => <Description>{children[0].text}</Description>)}
-							<InputWrap>
-								<BuyButton
-									className="snipcart-add-item"
-									data-item-id={item.id}
-									data-item-price={selected.price}
-									data-item-name={item.title}
-									data-item-description={item.blurb.en}
-									data-item-image={item.variants[0].images[0].asset.fluid.src}
-									data-item-url={`${siteMetadata.siteUrl}/products/${item.slug.current}`}
-									data-item-weight={item.variants[0].grams}
-								>
-									Add to cart
-								</BuyButton>
-							</InputWrap>
-						</div>
-					</Product>
-				</Layout>
-			);
-		} else if (digitalVersion !== -1) {
-			if (item.variants.length > 1) {
-				// multiple variant digital product
-				return (
-					<Layout location={siteTitle}>
-						<Product>
-							<div>
-								<Heading>{item.title}</Heading>
-								<ImgStyled fluid={item.variants[0].images[0].asset.fluid} />
-							</div>
-							<div>
-								<Price>${selected.price}</Price>
-								{item.body.en.map(({children}) => <Description>{children[0].text}</Description>)}
-								<label>{item.variant_type}</label>
-								<InputWrap>
-									<Dropdown
-										id={item.title}
-										onChange={(e) => this.setSelected(e.target.value)}
-										value={selected.title}
-									>
-										{item.variants.map((option) => (
-											<DropdownOption key={option.title}>{option.title}</DropdownOption>
-										))}
-									</Dropdown>
-									<BuyButton
-										className="snipcart-add-item"
-										data-item-id={item.id}
-										data-item-price={selected.price}
-										data-item-name={item.title}
-										data-item-description={item.blurb.en}
-										data-item-image={item.variants[0].images[0].asset.fluid.src}
-										data-item-url={`${siteMetadata.siteUrl}/products/${item.slug.current}`}
-										data-item-custom1-name={item.variant_type}
-										data-item-custom1-options={this.createString(item.variants)}
-										data-item-custom1-value={selected.title}
-										data-item-file-guid={item.variants[digitalVersion].guid}
-									>
-										Add to cart
-									</BuyButton>
-								</InputWrap>
-							</div>
-						</Product>
-					</Layout>
-				);
-			} else {
-				// single variant digital project
-				return (
-					<Layout location={siteTitle}>
-						<Product>
-							<div>
-								<Heading>{item.title}</Heading>
-								<ImgStyled fluid={item.variants[0].images[0].asset.fluid} />
-							</div>
-							<div>
-								<Price>${selected.price}</Price>
-								{item.body.en.map(({children}) => <Description>{children[0].text}</Description>)}
-								<label>{item.variant_type}</label>
-								<InputWrap>
-									<BuyButton
-										className="snipcart-add-item"
-										data-item-id={item.id}
-										data-item-price={selected.price}
-										data-item-name={item.title}
-										data-item-description={item.blurb.en}
-										data-item-image={item.variants[0].images[0].asset.fluid.src}
-										data-item-url={`${siteMetadata.siteUrl}/products/${item.slug.current}`}
-										data-item-file-guid={item.variants[digitalVersion].guid}
-									>
-										Add to cart
-									</BuyButton>
-								</InputWrap>
-							</div>
-						</Product>
-					</Layout>
-				);
-			}
-		} else {
-			// multiple variant physical product
-			return (
-				<Layout location={siteTitle}>
-					<Product>
-						<div>
-							<Heading>{item.title}</Heading>
-							<ImgStyled fluid={item.variants[0].images[0].asset.fluid} />
-						</div>
-						<div>
-							<Price>${selected.price}</Price>
-							{item.body.en.map(({children}) => <Description>{children[0].text}</Description>)}
-							<label>{item.variant_type}</label>
-							<InputWrap>
+  return (
+		<>
+			<Helmet 
+				title={steel.title}
+				htmlAttributes={{
+					lang: 'en',
+				}}
+			/>
+			<Layout>
+				<ProductGrid>
+					<div>
+						<Heading>{item.title}</Heading>
+						<ImgStyled image={imageData} alt={item.title} key={item.id}/>
+					</div>
+					<div>
+						<Price>${selected.price}</Price>
+						{item.body.en.map(({children}) => <Description key={children._key}>{children[0].text}</Description>)}
+						<InputWrap>
+							{item.variants.length > 1 && 
 								<Dropdown
+									aria-label={item.variant_type}
 									id={item.title}
-									onChange={(e) => this.setSelected(e.target.value)}
+									onChange={(e) => setSelected(variants[options.indexOf(e.target.value)])}
 									value={selected.title}
 								>
 									{item.variants.map((option) => (
-										<DropdownOption key={option.title}>{option.title}</DropdownOption>
+										<DropdownOption key={option._key}>{option.title}</DropdownOption>
 									))}
 								</Dropdown>
-								<BuyButton
-									className="snipcart-add-item"
-									data-item-id={item.id}
-									data-item-price={selected.price}
-									data-item-name={item.title}
-									data-item-description={item.blurb.en}
-									data-item-image={item.variants[0].images[0].asset.fluid.src}
-									data-item-url={`${siteMetadata.siteUrl}/products/${item.slug.current}`}
-									data-item-custom1-name={item.variant_type}
-									data-item-custom1-options={this.createString(item.variants)}
-									data-item-custom1-value={selected.title}
-									data-item-weight={item.variants[item.variants.indexOf(selected)].grams}
-								>
-									Add to cart
-								</BuyButton>
-							</InputWrap>
-						</div>
-					</Product>
-				</Layout>
-			);
-		}
-	}
+							}
+							<BuyButton
+								className="snipcart-add-item"
+								data-item-id={item.id}
+								data-item-price={selected.price}
+								data-item-name={item.title}
+								data-item-description={item.blurb.en}
+								data-item-image={variants[0].images[0].asset.url}
+								data-item-url={`${siteMetadata.siteUrl}/products/${item.slug.current}`}
+								data-item-custom1-name={variants.length > 1 ? item.variant_type : ''}
+								data-item-custom1-options={variants.length > 1 ? createString(variants, selected) : ''}
+								data-item-custom1-value={selected.title}
+								data-item-file-guid={digitalVersion !== -1 ? variants[digitalVersion].guid : ''}
+								data-item-weight={digitalVersion === -1 ? variants[item.variants.indexOf(selected)].grams : 0}
+							>
+								Add to cart
+							</BuyButton>
+						</InputWrap>
+					</div>
+				</ProductGrid>
+			</Layout>
+		</>
+  )
 }
+
+export default Product
 
 export const pageQuery = graphql`
 	query ItemBySlug($slug: String!) {
@@ -334,12 +202,15 @@ export const pageQuery = graphql`
 			}
 			body {
 				en {
+					_key
 					children {
+						_key
 						text
 					}
 				}
 			}
 			variants {
+				_key
 				title
 				grams
 				price
@@ -349,11 +220,10 @@ export const pageQuery = graphql`
 				guid
 				images {
 					asset {
+						url
 						assetId
+						id
 						description
-						fluid(maxWidth: 800) {
-							src
-						}
 					}
 				}
 			}
