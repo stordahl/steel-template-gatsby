@@ -14,7 +14,7 @@ const MainSection = styled.main`
   width: 100%;
 `
 
-export default function Layout(props) {
+const Layout = (props) => {
   const { children } = props
 
   return (
@@ -28,3 +28,5 @@ export default function Layout(props) {
     </>
     )
 }
+
+export default Layout

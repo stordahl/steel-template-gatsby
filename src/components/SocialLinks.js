@@ -1,12 +1,13 @@
-import { graphql, useStaticQuery } from 'gatsby';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import styled from 'styled-components';
 
 const IconsWrap = styled.div`
+	width: 100%;
+	margin: auto;
 	display: flex;
 	align-items: center;
 	& > * {
@@ -19,7 +20,7 @@ const IconsWrap = styled.div`
 
 library.add(fab);
 
-export default function SocialLinks() {
+const SocialLinks = () => {
 	const { links } = useStaticQuery(graphql`
 		query {
 			links: allSanitySiteSettings {
@@ -40,11 +41,13 @@ export default function SocialLinks() {
 		<IconsWrap>
 			{linksArr.map((elem) => {
 				return (
-					<a href={elem.link} key={elem._key}>
-						<FontAwesomeIcon icon={[ 'fab', elem.icon ]} size="lg" />
+					<a href={elem.link} key={elem._key} aria-label={elem.name}>
+						<FontAwesomeIcon icon={[ 'fab', elem.icon ]} size="lg" alt={elem.name} />
 					</a>
 				);
 			})}
 		</IconsWrap>
 	);
 }
+
+export default SocialLinks

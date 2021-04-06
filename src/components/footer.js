@@ -26,16 +26,14 @@ const ExternalLink = styled.a`
   }
 `
 
-class Footer extends React.Component{
-  render(){
-    return (
-      <FooterStyled>
-        <SocialLinks />
-        <strong>Built by <ExternalLink href="https://stordahl.dev" target="_blank" rel="noopener noreferrer">Jacob Stordahl</ExternalLink></strong>
-        <strong>Contribute to this open source project on <ExternalLink href="https://github.com/stordahl/gatsby-snipcart-sanity" target="_blank" rel="noopener noreferrer">Github</ExternalLink></strong>
-      </FooterStyled>
-    )
-  }
+const Footer = () => {
+  return (
+    <FooterStyled>
+      <SocialLinks />
+      <strong>Built by <ExternalLink href="https://stordahl.dev" target="_blank" rel="noopener noreferrer">Jacob Stordahl</ExternalLink></strong>
+      <strong>Contribute to this open source project on <ExternalLink href="https://github.com/stordahl/gatsby-snipcart-sanity" target="_blank" rel="noopener noreferrer">Github</ExternalLink></strong>
+    </FooterStyled>
+  )
 }
 
 export default Footer

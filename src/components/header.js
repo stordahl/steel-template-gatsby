@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { SnipcartContext } from "gatsby-plugin-snipcart-advanced/context";
-import { siteMetadata } from '../../gatsby-config'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import steel from '../steel-config'
 
-const HeaderStyled = styled.div`
+const HeaderStyled = styled.header`
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -42,16 +42,15 @@ const CartSummary = styled.div`
     }
 `
 
-export default function Header() {
-
+const Header = () => {
   const { state } = useContext(SnipcartContext);
-  const { userStatus, cartQuantity } = state;
-  
+  const { cartQuantity } = state;
+    
     return (
       <HeaderStyled>
         <ShopName>
           <LinkStyled to='/'>
-            {siteMetadata.title}
+            {steel.title}
           </LinkStyled>
         </ShopName>
         <CartSummary className="snipcart-summary">
@@ -64,3 +63,5 @@ export default function Header() {
     );
   
 }
+
+export default Header
