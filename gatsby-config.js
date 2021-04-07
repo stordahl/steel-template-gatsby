@@ -12,7 +12,7 @@ module.exports = {
       //keep at plugins[0] for steel config
       resolve: `gatsby-source-sanity`,
       options: {
-        projectId: `p0qod2z2`,
+        projectId: `your-id`,
         dataset: `production`,
         // a token with read permissions is required
         // if you have a private dataset
@@ -27,7 +27,7 @@ module.exports = {
       resolve: `gatsby-plugin-snipcart-advanced`,
       options: {
         version: `3.0.29`,
-        publicApiKey: `OGQ5ODg5ZmEtMjA1NC00Yjg1LTljYjktZmY0NzAyZTM0ZjUxNjM3NDg3ODI2OTgzMDkxNDUx`,
+        publicApiKey: `your-snipcart-public-key`,
       }
     },
     `gatsby-plugin-image`,
