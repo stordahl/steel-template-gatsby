@@ -165,7 +165,7 @@ const Product = ({ data: { item }}) => {
 								data-item-name={item.title}
 								data-item-description={item.blurb.en}
 								data-item-image={variants[0].images[0].asset.url}
-								data-item-url={`${siteMetadata.siteUrl}/products/${item.slug.current}`}
+								data-item-url={`${siteMetadata.siteUrl}/${item.slug.current}`}
 								data-item-custom1-name={variants.length > 1 ? item.variant_type : ''}
 								data-item-custom1-options={variants.length > 1 ? createString(variants, selected) : ''}
 								data-item-custom1-value={selected.title}
