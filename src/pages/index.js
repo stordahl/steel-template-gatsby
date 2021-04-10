@@ -4,7 +4,7 @@ import styled from "styled-components"
 import CategoriesFilter from '../components/CategoriesFilter'
 import ItemThumbnail from '../components/itemThumbnail'
 import Layout from "../components/layout"
-import Seo from "../components/Seo"
+import Seo from "../components/seo"
 import steel from "../steel-config.js"
 
 const ThumbnailsWrapper = styled.div`
