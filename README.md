@@ -2,7 +2,7 @@
 
 # steel-template-gatsby 🧩
 
-Steel is a sudo framework for building e-commerce websites. Learn more about the Steel ecosystem [here](https://github.com/stordahl/steel)
+Steel is a tool kit for headless commerce. Learn more about the Steel ecosystem [here](https://github.com/stordahl/steel)
 
 
 ## 🚀 Quick start
